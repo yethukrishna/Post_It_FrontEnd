@@ -1,10 +1,6 @@
 import html2canvas from 'html2canvas';
 
-/**
- * Download a React component as an image
- * @param {React.RefObject} elementRef - Reference to the DOM element
- * @param {string} filename - Name for the downloaded file (without extension)
- */
+
 export const downloadPoster = async (elementRef, filename = 'poster') => {
   if (!elementRef.current) {
     console.error('Element reference is null');
@@ -13,15 +9,15 @@ export const downloadPoster = async (elementRef, filename = 'poster') => {
   
   try {
     const canvas = await html2canvas(elementRef.current, {
-      scale: 2, // Higher quality
-      useCORS: true, // Allow cross-origin images
+      scale: 2, 
+      useCORS: true, 
       backgroundColor: '#ffffff',
       logging: false,
       windowWidth: 1200,
       windowHeight: 800
     });
     
-    // Convert canvas to blob
+  
     canvas.toBlob((blob) => {
       if (blob) {
         const url = URL.createObjectURL(blob);
@@ -30,7 +26,7 @@ export const downloadPoster = async (elementRef, filename = 'poster') => {
         link.href = url;
         link.click();
         
-        // Clean up
+       
         URL.revokeObjectURL(url);
       }
     }, 'image/png', 1.0);
