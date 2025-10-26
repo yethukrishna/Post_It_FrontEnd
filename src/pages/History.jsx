@@ -23,7 +23,7 @@ const History = () => {
   
   const navigate = useNavigate();
 
-  // Fetch all posters on component mount
+  
   useEffect(() => {
     fetchPosters();
   }, []);
