@@ -1,0 +1,1 @@
+export const serverURL = 'https://post-it-h7yl.onrender.com'
