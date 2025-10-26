@@ -40,18 +40,18 @@ const Steps = ({ formData, setFormData, setIsFinished, isEdit = false, posterId 
     setLoading(true);
     try {
       if (isEdit && posterId) {
-        // Update existing poster
+        
         await updatePoster(posterId, formData);
         showSnackbar('Poster updated successfully!', 'success');
       } else {
-        // Create new poster
+  
         await createPoster(formData);
         showSnackbar('Poster created successfully!', 'success');
       }
       
       setIsFinished(true);
       
-      // Redirect to history page after 2 seconds
+      
       setTimeout(() => {
         navigate('/history');
       }, 2000);
